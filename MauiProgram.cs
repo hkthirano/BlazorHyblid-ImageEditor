@@ -15,6 +15,7 @@ namespace BlazorHyblid_ImageEditor
                 });
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddAntDesign();
 
 #if DEBUG
     		builder.Services.AddBlazorWebViewDeveloperTools();
