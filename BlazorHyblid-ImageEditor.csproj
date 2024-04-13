@@ -58,11 +58,25 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Content Remove="appsettings.json" />
+      <Content Remove="Resources\Raw\appsettings.Development.json" />
+      <Content Remove="Resources\Raw\appsettings.json" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="AntDesign" Version="0.18.3" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiAsset Update="Resources\Raw\appsettings.Development.json">
+        <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      </MauiAsset>
     </ItemGroup>
 
 </Project>

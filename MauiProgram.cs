@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace BlazorHyblid_ImageEditor
 {
@@ -16,9 +17,17 @@ namespace BlazorHyblid_ImageEditor
 
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddAntDesign();
+            builder.Services.AddHttpClient();
+
+            using var stream = FileSystem.OpenAppPackageFileAsync("appsettings.json").Result;
+
+            IConfigurationRoot config = new ConfigurationBuilder()
+                .AddJsonStream(stream)
+                .Build();
+            builder.Configuration.AddConfiguration(config);
 
 #if DEBUG
-    		builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
 #endif
 
