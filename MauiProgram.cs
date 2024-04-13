@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using MudBlazor.Services;
 
 namespace BlazorHyblid_ImageEditor
 {
@@ -16,7 +17,7 @@ namespace BlazorHyblid_ImageEditor
                 });
 
             builder.Services.AddMauiBlazorWebView();
-            builder.Services.AddAntDesign();
+            builder.Services.AddMudServices();
             builder.Services.AddHttpClient();
 
             using var stream = FileSystem.OpenAppPackageFileAsync("appsettings.json").Result;

@@ -5,9 +5,7 @@
 @inject IHttpClientFactory ClientFactory
 @inject Microsoft.Extensions.Configuration.IConfiguration config
 
-<Button Type="@ButtonType.Primary" OnClick="PickAndShow">
-    Open Image
-</Button>
+<MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="PickAndShow">Open Image</MudButton>
 
 <img id="image" />
 
